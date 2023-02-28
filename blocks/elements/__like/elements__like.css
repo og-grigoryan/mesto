@@ -1,0 +1,17 @@
+.elements__like {
+    width: 26px;
+    height: 23px;
+    background: url(../../../images/like.svg) no-repeat;
+    border: 0;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.5s ease;
+}
+
+.elements__like:hover {
+    opacity: 0.5;
+}
+
+.elements__like:focus {
+    background: url(../../../images/activeloke.svg) no-repeat;
+}

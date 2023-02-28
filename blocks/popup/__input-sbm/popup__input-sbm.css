@@ -1,0 +1,28 @@
+.popup__input-sbm {
+    padding: 14px 0 14px;
+    margin-top: 18px;
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    border: 0;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+@media screen and (max-width:1279px) {
+    .popup__input-sbm {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
+
+.popup__input-sbm:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}

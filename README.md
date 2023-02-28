@@ -17,4 +17,4 @@
 
 **Gh-pages**
 
-Ссылка на проект:https://og-grigoryan.github.io/russian-travel/
+Ссылка на проект:https://og-grigoryan.github.io/mesto/

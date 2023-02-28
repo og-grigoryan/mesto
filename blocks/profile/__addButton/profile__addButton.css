@@ -10,7 +10,7 @@
 
 @media screen and (max-width:1279px) {
     .profile__addButton {
-        background: url(images/bigaddbtn.svg) no-repeat;
+        background: url(../../../images/bigaddbtn.svg) no-repeat;
         margin: 0;
         padding: 0;
         width: 282px;

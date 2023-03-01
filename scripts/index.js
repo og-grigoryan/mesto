@@ -1,10 +1,10 @@
-let profileEditButton = document.querySelector('.profile__editButton'),
+let profileEditButton = document.querySelector('.profile__edit-button'),
     profileTitle = document.querySelector('.profile__title'),
     profileSubtitle = document.querySelector('.profile__subtitle'),
     popupInput = document.querySelector('.popup'),
     closeInput = popupInput.querySelector('.popup__close'),
-    nameInput = popupInput.querySelector('.popup__input_name'),
-    jobInput = popupInput.querySelector('.popup__input_job'),
+    nameInput = popupInput.querySelector('.popup__input_person_name'),
+    jobInput = popupInput.querySelector('.popup__input_person_job'),
     form = popupInput.querySelector('.popup__form');
 
 function openPopap() {

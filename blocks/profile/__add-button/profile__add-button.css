@@ -1,16 +1,17 @@
-.profile__addButton {
+.profile__add-button {
     width: 152px;
     height: 52px;
-    background: url(../../../images/Add\ Button.svg) no-repeat;
+    background: center url(../../../images/AddButtonv.2.0..svg) no-repeat;
     cursor: pointer;
     border: 1px;
     align-self: center;
+    border: 2px solid #FFFFFF;
+    border-radius: 2px;
     transition: opacity 0.5s ease;
 }
 
 @media screen and (max-width:1279px) {
-    .profile__addButton {
-        background: url(../../../images/bigaddbtn.svg) no-repeat;
+    .profile__add-button {
         margin: 0;
         padding: 0;
         width: 282px;
@@ -19,6 +20,6 @@
     }
 }
 
-.profile__addButton:hover {
+.profile__add-button:hover {
     opacity: 0.6;
 }

@@ -1,6 +1,7 @@
 .popup__title {
     max-width: 330px;
-    font-family: 'Inter';
+    max-height: 23px;
+    font-family: 'Inter', 'Times New Roman', Times, serif;
     font-style: normal;
     font-weight: 900;
     font-size: 24px;

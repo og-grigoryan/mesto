@@ -10,20 +10,20 @@
     <div class="page">
         <header class="header">
             <img src="images/logo.svg" alt="Место" class="header__logo">
-            <hr class="header__line">
         </header>
-        <div class="profile">
+        <main>
+          <section class="profile">
             <div class="profile__intro">
                 <img src="images/Avatar.svg" alt="Аватар" class="profile__avatar">
                 <div class="profile__card">
                     <h1 class="profile__title">Жак-Ив Кусто</h1>
                     <p class="profile__subtitle">Исследователь океана</p>
                 </div>
-                <button aria-label="Редактировать" type="button" class="profile__editButton"></button>
+                <button aria-label="Редактировать" type="button" class="profile__edit-button"></button>
             </div>
-            <button aria-label="Добавить" type="button" class="profile__addButton"></button>
-        </div>
-        <div class="elements">
+            <button aria-label="Добавить" type="button" class="profile__add-button"></button>
+          </section>
+          <section class="elements">
             <ul class="elements__grids">
                 <li class="elements__items">
                     <img class="elements__item" src="images/Карачаевск.png" alt="Карачаевск">
@@ -68,7 +68,8 @@
                     </div>
                 </li>
               </ul>
-        </div>
+          </section>
+        </main>
         <footer class="footer">
             <p class="footer__copyright">© 2020 Mesto Russia</p>
         </footer>
@@ -77,9 +78,9 @@
             <button aria-label="Закрыть Popup" type="button" class="popup__close"></button>
             <h3 class="popup__title">Редактировать профиль</h3>
             <form name="popup_form" class="popup__form">
-              <input class="popup__input popup__input_name" type="text" name="user_name" placeholder="Ваше имя">
-              <input class="popup__input popup__input_job" type="text" name="user_job" placeholder="О себе">
-              <input class="popup__input-sbm" type="submit" value="Сохранить">
+              <input class="popup__input popup__input_person_name" type="text" name="user_name" placeholder="Ваше имя">
+              <input class="popup__input popup__input_person_job" type="text" name="user_job" placeholder="О себе">
+              <button aria-label="Сохранить" type="submit" class="popup__input-sbm">Сохранить</button>
             </form>
           </div>
         </div>

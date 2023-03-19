@@ -32,8 +32,8 @@ let profileEditButton = document.querySelector('.profile__edit-button'),
     profileSubtitle = document.querySelector('.profile__subtitle'),
     popupInput = document.querySelector('.popup'),
     closeInput = popupInput.querySelector('.popup__close'),
-    nameInput = popupInput.querySelector('.popup__input_person_name'),
-    jobInput = popupInput.querySelector('.popup__input_person_job'),
+    nameInput = popupInput.querySelector('.popup__input_string_name'),
+    jobInput = popupInput.querySelector('.popup__input_string_job'),
     form = popupInput.querySelector('.popup__form');
 
 function openPopap() {

@@ -1,4 +1,4 @@
-.popup__input-sbm {
+.popup__input-btn {
     padding: 14px 4px 14px;
     margin-top: 18px;
     width: 100%;
@@ -17,13 +17,13 @@
 }
 
 @media screen and (max-width:1279px) {
-    .popup__input-sbm {
+    .popup__input-btn {
         margin-top: 20px;
         font-size: 14px;
         line-height: 17px;
     }
 }
 
-.popup__input-sbm:hover {
+.popup__input-btn:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }

@@ -25,49 +25,8 @@
           </section>
           <section class="elements">
             <ul class="elements__grids">
-                <li class="elements__items">
-                    <img class="elements__item" src="images/Карачаевск.png" alt="Карачаевск">
-                    <div class="elements__desc">
-                      <h2 class="elements__title">Карачаевск</h2>
-                      <button aria-label="лайк" type="button" class="elements__like"></button>
-                    </div>
-                </li>
-                <li class="elements__items">
-                    <img class="elements__item" src="images/гораЭльбрус1.png" alt="Гора Эльбрус">
-                    <div class="elements__desc">
-                      <h2 class="elements__title">Гора Эльбрус</h2>
-                      <button aria-label="лайк" type="button" class="elements__like"></button>
-                    </div>
-                </li>
-                <li class="elements__items">
-                    <img class="elements__item" src="images/домбай1.png" alt="Домбай">
-                    <div class="elements__desc">
-                      <h2 class="elements__title">Домбай</h2>
-                      <button aria-label="лайк" type="button" class="elements__like"></button>
-                    </div>
-                </li>
-                <li class="elements__items">
-                    <img class="elements__item" src="images/гораЭльбрус2.png" alt="Гора Эльбрус">
-                    <div class="elements__desc">
-                      <h2 class="elements__title">Гора Эльбрус</h2>
-                      <button aria-label="лайк" type="button" class="elements__like"></button>
-                    </div>
-                </li>
-                <li class="elements__items">
-                    <img class="elements__item" src="images/Домбай2.png" alt="Домбай">
-                    <div class="elements__desc">
-                      <h2 class="elements__title">Домбай</h2>
-                      <button aria-label="лайк" type="button" class="elements__like"></button>
-                    </div>
-                </li>
-                <li class="elements__items">
-                    <img class="elements__item" src="images/Карачаево-Черкесия.png" alt="Карачаево-Черкесская республика">
-                    <div class="elements__desc">
-                      <h2 class="elements__title">Карачаево-Черкесская республика</h2>
-                      <button aria-label="лайк" type="button" class="elements__like"></button>
-                    </div>
-                </li>
-              </ul>
+
+            </ul>
           </section>
         </main>
         <footer class="footer">
@@ -80,10 +39,38 @@
             <form name="popup_form" class="popup__form">
               <input class="popup__input popup__input_person_name" type="text" name="user_name" placeholder="Ваше имя">
               <input class="popup__input popup__input_person_job" type="text" name="user_job" placeholder="О себе">
-              <button aria-label="Сохранить" type="submit" class="popup__input-sbm">Сохранить</button>
+              <button aria-label="Сохранить" type="submit" class="popup__input-btn">Сохранить</button>
             </form>
           </div>
         </div>
+        <div class="popup popup_add-card">
+          <div class="popup__container">
+            <button aria-label="Закрыть Popup" type="button" class="popup__close" ></button>
+            <h3 class="popup__title popup__title_add">Новое место</h3>
+            <form name="popup__form-add-card" class="popup__form popup__form_add-card">
+                <input id="image-input" class="popup__input popap__input_string_place" type="text" name="card_name" placeholder="Название">
+                <input id="src-input" class="popup__input popup__input_string_src" type="url" name="card_src" placeholder="Ссылка на картинку">
+                <button class="popup__input-btn" type="submit">Создать</button>
+            </form>
+          </div>
+        </div>
+        <div class="popup popup_img-card">
+          <div class="popup__img-container">
+            <button aria-label="Закрыть Popup" type="button" class="popup__close"></button>
+            <img class="popup__zoom-image" src="#" alt="">
+            <h3 class="popup__zoom-title"></h3>
+          </div>
+        </div>
+        <template id="template__elements__items">
+            <li class="elements__items">
+                <button aria-label="Удалить" class="elements__trash" type="button"></button>
+                <img class="elements__item" src="#" alt="">
+                <div class="elements__desc">
+                  <h2 class="elements__title"></h2>
+                  <button aria-label="лайк" type="button" class="elements__like"></button>
+                </div>
+            </li>
+        </template>
     </div>
     <script src="scripts/index.js"></script>
 </body>

@@ -36,13 +36,13 @@ let profileEditButton = document.querySelector('.profile__edit-button'),
     jobInput = popupInput.querySelector('.popup__input_string_job'),
     form = popupInput.querySelector('.popup__form');
 
-function openPopap() {
+function openPopup() {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileSubtitle.textContent;
   popupInput.classList.add('popup_opened');
 }
 
-function closePopap() {
+function closePopup() {
   popupInput.classList.remove('popup_opened');
 }
 
@@ -50,12 +50,12 @@ function handleFormSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileSubtitle.textContent = jobInput.value;
-  closePopap();
+  closePopup();
 }
 
 form.addEventListener('submit', handleFormSubmit);
-profileEditButton.addEventListener('click', openPopap)
-closeInput.addEventListener('click', closePopap)
+profileEditButton.addEventListener('click', openPopup)
+closeInput.addEventListener('click', closePopup)
 
 // шаблон карт (из данного массива)
 
@@ -131,7 +131,7 @@ const formCardEdit = document.querySelector('.profile__add-button'),
       popupCardAdd = document.querySelector('.popup_add-card'),
       popupCardClose = popupCardAdd.querySelector('.popup__close'),
       popupCardForm = popupCardAdd.querySelector('.popup__form_add-card'),
-      popupCardInputPlace = popupCardAdd.querySelector('.popap__input_string_place'),
+      popupCardInputPlace = popupCardAdd.querySelector('.popup__input_string_place'),
       popupCardInputSrc = popupCardAdd.querySelector('.popup__input_string_src'),
       popupCardInputBtn = popupCardAdd.querySelector('.popup__input-btn');
 

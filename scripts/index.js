@@ -34,17 +34,36 @@ const profileEditButton = document.querySelector('.profile__edit-button'),
     closeInput = popupProfileInput.querySelector('.popup__close'),
     nameInput = popupProfileInput.querySelector('.popup__input_string_name'),
     jobInput = popupProfileInput.querySelector('.popup__input_string_job'),
-    form = popupProfileInput.querySelector('.popup__form');
+    form = popupProfileInput.querySelector('.popup__form'),
+    popupsAll = document.querySelectorAll('.popup');
 
+    
+//-----------------------------------------------------------------------------------------функции открытия и закрытия попапа
 
 
 const openModal = (popupName) => {    // универсальные функкции для открытия и закрытия попапов
   popupName.classList.add('popup_opened');
+  document.addEventListener('keydown', closeEscape);
 }
 const closeModal = (popupName) =>  {
   popupName.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeEscape);
 }
 
+function closeEscape(evt) { // функция закрытия попапа при нажатии на 'Esc'
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closeModal(openedPopup);
+  }
+}
+
+popupsAll.forEach((overlayPopup) => {      // функция закрытия попала на клик по оверлею
+  overlayPopup.addEventListener('click', (evt) => {
+    if (evt.target === evt.currentTarget) {
+      closeModal(overlayPopup);
+    }
+  });
+});
 
 function openProfileEdit() {    // автоматический ввод в поля при открытие попапа
   nameInput.value = profileTitle.textContent;
@@ -101,8 +120,8 @@ function createCard ({ name, link }) {   // создание карточки
     const popupZoomImg = popupImg.querySelector('.popup__zoom-image'),
     popupZoomTitle = popupImg.querySelector('.popup__zoom-title')
 
-    popupCloseImg.addEventListener('click', () =>{
-    closeModal(popupImg)
+    popupCloseImg.addEventListener('click', () => {
+      closeModal(popupImg)
     })
 
 

@@ -82,10 +82,10 @@ enableValidation = () => {
   this._setEventListeners();
 };
 
-submitFalse = () => {
+/*submitFalse = () => {
   this._buttons.disabled = false;
   this._buttons.classList.remove(this._toggleClassFromButton);
-}
+}*/
 
 resetValidation() {
   this._inputs.forEach((inputElement) => {

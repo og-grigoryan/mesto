@@ -142,13 +142,11 @@ render();
 // добавление карточек
 
 function handleFormSubmitAddCard(evt) {
-  const addButton = document.querySelector('.popup__input-btn-add-card');
   evt.preventDefault();
   renderCard({name: popupCardInputPlace.value, link: popupCardInputSrc.value});
   closeModal(popupCardAdd);
   evt.target.reset(); // обнулевие формы после добавление
-  addButton.classList.add('popup__input-btn_inactive');
-  addButton.disabled = true;
+  validPopupCardForm.disabledSubmitBtn()//вызов метода отключения кнопки
 }
 
 popupCardForm.addEventListener('submit',  handleFormSubmitAddCard);
@@ -169,7 +167,7 @@ const settings = {
 
 const validpopupProfileInput = new FormValidator(settings, popupProfileInput);
 validpopupProfileInput.enableValidation();
-validpopupProfileInput.submitFalse();
+validpopupProfileInput.activeSubmitBtn();
 
 const validPopupCardForm = new FormValidator(settings, popupCardAdd);
 validPopupCardForm.enableValidation();

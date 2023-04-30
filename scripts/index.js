@@ -1,3 +1,5 @@
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
 const initialCards = [       // массив данных
   {
     name: 'Архыз',
@@ -98,7 +100,6 @@ closeInput.addEventListener('click', () => closeModal(popupProfileInput))
 // шаблон карт (из данного массива)
 
 const placesContainer = document.querySelector('.elements__grids');
-const placeTemplate = document.querySelector('#template__elements__items').content;
 
 const placeInfo = initialCards.map(function (item) {  // перебирание массива
   return {
@@ -115,33 +116,22 @@ function clickLikeCard (evt) { // функция поставки лайка
   evt.target.classList.toggle('elements__like_active')
 }
 
-function createCard ({ name, link }) {   // создание карточки
-  const placeElement = placeTemplate.querySelector('.elements__items').cloneNode(true);
-  const placeLike = placeElement.querySelector('.elements__like');
-  const itemElement = placeElement.querySelector('.elements__item');
-  placeElement.querySelector('.elements__title').textContent = name;
-  itemElement.src = link;
-  itemElement.alt = name;
-  placeElement.querySelector('.elements__like').addEventListener('click', () => placeLike.classList.toggle('elements__like_active'));         // лайк
-  placeElement.querySelector('.elements__trash').addEventListener('click', () => placeElement.remove());       // удаление
-
-  itemElement.addEventListener('click', openImgBig)    //Открытие большой картинки
-
-
-  function openImgBig(evt)  {                      // функция зума карточек
-  const imgSrc = evt.target.getAttribute('src'), 
-    imgAlt = evt.target.getAttribute('alt')
-  popupZoomImg.setAttribute('src', imgSrc)
-  popupZoomImg.setAttribute('alt', imgAlt)
-  popupZoomTitle.textContent = imgAlt
-  openModal(popupImg)
-  }
-  return placeElement;
+function createCard (data) {   // создание карточки
+  const cards = new Card(data.name, data.link, '#template__elements__items', openImgBig);
+  // Создаём карточку и возвращаем
+  return cards.generateCard();
 }
 
 popupCloseImg.addEventListener('click', () => {  //закрытие большой картинки
   closeModal(popupImg)
 })
+
+function openImgBig(name, link){         //открытие большой картинки
+  openModal(popupImg);
+  popupZoomImg.src = link;
+  popupZoomImg.alt = name;
+  popupZoomTitle.textContent = name;
+}
 
 function renderCard ({ name, link }) {  // обработка
   placesContainer.prepend(createCard({ name, link }));
@@ -164,3 +154,22 @@ function handleFormSubmitAddCard(evt) {
 popupCardForm.addEventListener('submit',  handleFormSubmitAddCard);
 formCardEdit.addEventListener('click', () => openModal(popupCardAdd));
 popupCardClose.addEventListener('click', () => closeModal(popupCardAdd));
+
+//---------------------------------------------------Валидация
+const settings = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  buttonSelector: '.popup__input-btn',
+  toggleClassFromButton: 'popup__input-btn_inactive',
+  
+  inputErrorActive: 'popup__input-error_active',
+  inputTypeError: 'popup__input_type_error',
+  elementError: '.{elemID}-error',
+}
+
+const validpopupProfileInput = new FormValidator(settings, popupProfileInput);
+validpopupProfileInput.enableValidation();
+validpopupProfileInput.submitFalse();
+
+const validPopupCardForm = new FormValidator(settings, popupCardAdd);
+validPopupCardForm.enableValidation();

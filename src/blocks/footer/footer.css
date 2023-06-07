@@ -1,17 +1,13 @@
 .footer {
-    width: 100%;
-    max-width: 882px;
-    margin: 0 auto;
-    margin-top: 66px;
-    margin-bottom: 60px;
-    padding: 0;
-    display: flex;
-    justify-content: flex-start;
+  max-width: 880px;
+  padding: 0 45px 60px;
+  margin: auto;
 }
-@media screen and (max-width: 400px)
-{
-    .footer {
-        margin-top: 48px;
-        margin-bottom: 36px;
-    }
+
+@media screen and (max-width: 700px) {
+
+  .footer {
+    padding: 0 19px 36px;
+  }
+
 }

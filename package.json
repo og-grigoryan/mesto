@@ -1,0 +1,13 @@
+{
+  "name": "mesto-main",
+  "version": "1.0.0",
+  "description": "### Обзор",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf dist && webpack --mode production",
+    "dev": "webpack-dev-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

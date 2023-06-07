@@ -1,8 +1,0 @@
-.elements__item {
-    object-fit: cover;
-    max-width: 100%;
-    min-height: 282px;
-    display: block;
-    aspect-ratio: 1/1;
-    cursor: pointer;
-}

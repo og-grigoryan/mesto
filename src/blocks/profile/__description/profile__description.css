@@ -14,7 +14,7 @@
     color: #ffffff;
     margin: 0;
     padding: 0;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
     white-space: nowrap; 
     overflow: hidden;
 }

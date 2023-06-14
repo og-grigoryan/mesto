@@ -1,6 +1,7 @@
 .popup__title {
   display: block;
-  margin: 0 64px 54px 36px;
+  padding: 0 64px 36px 36px;
+  margin: 0;
   font-family: 'Inter';
   font-weight: 900;
   font-size: 24px;
@@ -13,7 +14,7 @@
   .popup__title {
     font-size: 18px;
     line-height: 22px;
-    margin: 0 22px 70px;
+    padding: 0 22px 36px;
   }
 
 }

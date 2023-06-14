@@ -15,11 +15,14 @@
     <main class="content">
 
       <section class="profile">
-        <img class="profile__avatar" src="<%=require('./images/profile/profile__avatar.jpg')%>" alt="Аватарка Жан-Ив Кусто">
+        <div class="profile__avatar-wrap">
+          <div class="profile__avatar-overlay"></div>
+          <img src="#" alt="Подождите, подгружается" class="profile__avatar">
+        </div>
         <div class="profile__info">
           <button class="profile__edit-button" type="button"></button>
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <p class="profile__description">Исследователь океана</p>
+          <h1 class="profile__name"></h1>
+          <p class="profile__about"></p>
         </div>
         <button class="profile__add-button" type="button"></button>
       </section>
@@ -31,7 +34,7 @@
     </main>
 
     <footer class="footer">
-      <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
+      <p class="footer__copyright">&copy; 2021. Made by Alexey Rudoy. Designed by Yandex.Praktikum.</p>
     </footer>
 
     <section class="popup popup_type_profile">
@@ -43,10 +46,10 @@
             <span class="popup__input-error name-input-error"></span>
           </div>
           <div class="popup__form-wrap">
-            <input class="popup__input popup__input_type_bottom" id="description-input" type="text" placeholder="О себе" name="description" minlength="2" maxlength="200" required>
-            <span class="popup__input-error description-input-error"></span>
+            <input class="popup__input popup__input_type_bottom" id="about-input" type="text" placeholder="О себе" name="about" minlength="2" maxlength="200" required>
+            <span class="popup__input-error about-input-error"></span>
           </div>
-          <button class="popup__save-button popup__save-button_type_profile" type="submit"><span>Сохранить</span></button>
+          <button class="popup__save-button" type="submit"><span class="popup__button-span">Сохранить</span></button>
         </form>
         <button class="popup__close-button" type="button"></button>
       </div>
@@ -64,7 +67,21 @@
             <input class="popup__input popup__input_type_bottom" id="link-input" type="url" placeholder="Ссылка на картинку" name="link" required>
             <span class="popup__input-error link-input-error"></span>
           </div>
-          <button class="popup__save-button popup__save-button_type_mesto" type="submit"><span>Создать</span></button>
+          <button class="popup__save-button" type="submit"><span class="popup__button-span">Создать</span></button>
+        </form>
+        <button class="popup__close-button" type="button"></button>
+      </div>
+    </section>
+
+    <section class="popup popup_type_avatar">
+      <div class="popup__container">
+        <h2 class="popup__title">Обновить аватар</h2>
+        <form class="popup__form popup__form_type_avatar" name="popup-form-avatar" novalidate>
+          <div class="popup__form-wrap popup__form-wrap_type_avatar">
+            <input class="popup__input" id="input-link" type="url" placeholder="Ссылка на аватарку" name="avatar" required>
+            <span class="popup__input-error input-link-error"></span>
+          </div>
+          <button class="popup__save-button" type="submit"><span class="popup__button-span">Сохранить</span></button>
         </form>
         <button class="popup__close-button" type="button"></button>
       </div>
@@ -78,11 +95,20 @@
         </figure>
         <button class="popup__close-button" type="button"></button>
       </div>
-
+    </section>
+    
+    <section class="popup popup_type_delete">
+      <div class="popup__container">
+        <h2 class="popup__title">Вы уверены?</h2>
+        <form class="popup__form">
+          <button class="popup__save-button" type="submit"><span class="popup__button-span">Да</span></button>
+        </form>
+        <button class="popup__close-button" type="button"></button>
+      </div>
     </section>
 
   </div>
-
+  
   <template class="template template_type_default">
     <article class="element">
       <div class="element__img-wrap">
@@ -91,7 +117,10 @@
       <button class="element__delete-button" type="button"></button>
       <div class="element__info">
         <h2 class="element__title"></h2>
-        <button class="element__like-button" type="button"></button>
+        <div class="element__like_ui">
+          <button class="element__like-button" type="button"></button>
+          <p class="element__like-counter"></p>
+        </div>
       </div>
     </article>
   </template>

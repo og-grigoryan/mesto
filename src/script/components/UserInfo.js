@@ -16,6 +16,7 @@ export default class UserInfo {
     return {
       name: this.nameUser.textContent,
       about: this.aboutUser.textContent,
+      avatar: this.avatarUser.src,
     };
   }
 }

@@ -11,7 +11,7 @@ export default class Card {
     this._name = item.name;
     this._link = item.link;
     this._likesArr = item.likes;
-    this._userId = item.owner._id;
+    this._ownerId = item.owner._id;
     this._myId = myInfo._id;
     this._card = item;
     this._cardSelector = cardSelector;
@@ -38,9 +38,9 @@ export default class Card {
     this._element.remove();
   }
 
-  handleLike(item) {
+  updateLikes(item) {
     this._likesArr = item.likes;
-    this._getLikeValue(item);
+    this._setLikesCount(item);
     if (this._checkMyLike()) {
       this._element
         .querySelector(".element__like-button")
@@ -52,7 +52,7 @@ export default class Card {
     }
   }
 
-    _getLikeValue(item) {
+  _setLikesCount(item) {
     this._element.querySelector(".element__like-counter").textContent =
       item.likes.length;
   }
@@ -62,15 +62,11 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._element
-      .querySelector(".element__image")
-      .addEventListener("click", () => {
+    this.imgEl.addEventListener("click", () => {
         this._handleCardClick(this._card);
       });
 
-    this._element
-      .querySelector(".element__like-button")
-      .addEventListener("click", () => {
+    this.likeButton.addEventListener("click", () => {
         if (this._checkMyLike()) {
           this._handleDelLikeEl();
         } else {
@@ -78,28 +74,25 @@ export default class Card {
         }
       });
 
-    this._element
-      .querySelector(".element__delete-button")
-      .addEventListener("click", () => this._handleDelClick(this._card._id));
+      this.delButton.addEventListener("click", () => this._handleDelClick(this._card._id));
   }
 
   generateCard() {
     this._element = this._getTemplate();
+    this.delButton = this._element.querySelector(".element__delete-button");
+    this.likeButton = this._element.querySelector(".element__like-button");
+    this.imgEl = this._element.querySelector(".element__image");
     const titleEl = this._element.querySelector(".element__title");
-    const imgEl = this._element.querySelector(".element__image");
     const likesEl = this._element.querySelector(".element__like-counter");
-    const delButton = this._element.querySelector(".element__delete-button");
-    if (this._userId == this._myId)
-      delButton.classList.add("element__delete-button_active");
+    if (this._ownerId == this._myId)
+      this.delButton.classList.add("element__delete-button_active");
     if (this._checkMyLike()) {
-      this._element
-        .querySelector(".element__like-button")
-        .classList.add("element__like-button_active");
+      this.likeButton.classList.add("element__like-button_active");
     }
     likesEl.textContent = this._likesArr.length;
     titleEl.textContent = this._name;
-    imgEl.src = this._link;
-    imgEl.alt = `Это ${this._name}? Не похоже) Введите корректную ссылку.`;
+    this.imgEl.src = this._link;
+    this.imgEl.alt = `Это ${this._name}? Не похоже) Введите корректную ссылку.`;
 
     this._setEventListeners();
 

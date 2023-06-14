@@ -12,23 +12,23 @@ export default class FormValidator {
   }
 
   _showInputError(inputElement, errorMessage) {
-    const errorELement = this._formElement.querySelector(
+    const errorElement = this._formElement.querySelector(
       `.${inputElement.id}-error`
     );
 
     inputElement.classList.add(this._config.inputErrorClass);
-    errorELement.classList.add(this._config.errorClass);
-    errorELement.textContent = errorMessage;
+    errorElement.classList.add(this._config.errorClass);
+    errorElement.textContent = errorMessage;
   }
 
   _hideInputError(inputElement) {
-    const errorELement = this._formElement.querySelector(
+    const errorElement = this._formElement.querySelector(
       `.${inputElement.id}-error`
     );
 
     inputElement.classList.remove(this._config.inputErrorClass);
-    errorELement.classList.remove(this._config.errorClass);
-    errorELement.textContent = "";
+    errorElement.classList.remove(this._config.errorClass);
+    errorElement.textContent = "";
   }
 
   _checkInputValidity(inputElement) {
@@ -60,9 +60,9 @@ export default class FormValidator {
 
   checkButtonStateOpenPopup() {
     this._inputList.forEach((inputElement) => {
-      this._toggleButtonState();
       this._hideInputError(inputElement);
     });
+    this._toggleButtonState();
   }
 
   enableValidation() {

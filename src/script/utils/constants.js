@@ -18,4 +18,4 @@ export const editButtonProfile = document.querySelector(".profile__edit-button")
 export const addButtonMesto = document.querySelector(".profile__add-button");
 export const editButtonAvatar = document.querySelector(".profile__avatar-overlay");
 
-export const elContainer = document.querySelector(".elements");
+export const cardsContainer = document.querySelector(".elements");

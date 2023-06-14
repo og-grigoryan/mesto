@@ -7,7 +7,7 @@ import {
   editButtonProfile,
   addButtonMesto,
   editButtonAvatar,
-  elContainer,
+  cardsContainer,
 } from "../script/utils/constants.js";
 import FormValidator from "../script/components/FormValidator.js";
 import Section from "../script/components/Section.js";
@@ -57,7 +57,7 @@ Promise.all([api.getUserProfile(), api.getInitialCards()])
     myInfo = objectInfo;
 
     userInfo.setUserInfo(objectInfo);
-    cardList.renderItems(cardArr);
+    cardsSection.renderItems(cardArr);
     console.log(objectInfo);
     console.log(cardArr);
   })
@@ -66,14 +66,14 @@ Promise.all([api.getUserProfile(), api.getInitialCards()])
   });
 
 // Добавление карточек на страницу из массива
-const cardList = new Section(
+const cardsSection = new Section(
   {
     renderer: (item) => {
       createCardEl(item);
-      cardList.addItemAppend(createCardEl(item));
+      cardsSection.addItemAppend(createCardEl(item));
     },
   },
-  elContainer
+  cardsContainer
 );
 
 // Функция создания карточки
@@ -163,7 +163,7 @@ const popupMesto = new PopupWithForm({
     api.addNewCard(item)
       .then((itemCard) => {
         const newCard = createCardEl(itemCard);
-        cardList.addItemPrepend(newCard);
+        cardsSection.addItemPrepend(newCard);
         popupMesto.close();
       })
       .catch((error) => console.log(error))

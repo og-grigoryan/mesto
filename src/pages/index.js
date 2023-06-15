@@ -99,14 +99,14 @@ const createCardEl = (item) => {
     handleLikeEl: () => {
       api.addLikeCard(card.getCurrentCard()._id)
         .then((itemCard) => {
-          card.handleLike(itemCard);
+          card.updateLikes(itemCard);
         })
         .catch(() => console.log("Ошибка постановки лайка"));
     },
     handleDelLikeEl: () => {
       api.removeLikeCard(card.getCurrentCard()._id)
         .then((itemCard) => {
-          card.handleLike(itemCard);
+          card.updateLikes(itemCard);
         })
         .catch(() => console.log("Ошибка снятия лайка"));
     },
@@ -124,7 +124,7 @@ popupDelCard.setEventListeners();
 const popupAvatar = new PopupWithForm({
   popupSelector: ".popup_type_avatar",
   handleFormSubmit: (data) => {
-    popupAvatar.setUserUX(true);
+    popupAvatar.setIsLoading(true);
 
     api.editUserAvatar(data)
       .then((objectInfo) => {
@@ -132,7 +132,7 @@ const popupAvatar = new PopupWithForm({
         popupAvatar.close();
       })
       .catch((error) => console.log(error))
-      .finally(() => popupAvatar.setUserUX(false));
+      .finally(() => popupAvatar.setIsLoading(false));
   },
 });
 popupAvatar.setEventListeners();
@@ -141,7 +141,7 @@ popupAvatar.setEventListeners();
 const popupProfile = new PopupWithForm({
   popupSelector: ".popup_type_profile",
   handleFormSubmit: (data) => {
-    popupProfile.setUserUX(true);
+    popupProfile.setIsLoading(true);
 
     api.setUserProfile(data)
       .then((dataInfo) => {
@@ -149,7 +149,7 @@ const popupProfile = new PopupWithForm({
         popupProfile.close();
       })
       .catch((error) => console.log(error))
-      .finally(() => popupProfile.setUserUX(false));
+      .finally(() => popupProfile.setIsLoading(false));
   },
 });
 popupProfile.setEventListeners();
@@ -158,7 +158,7 @@ popupProfile.setEventListeners();
 const popupMesto = new PopupWithForm({
   popupSelector: ".popup_type_mesto",
   handleFormSubmit: (item) => {
-    popupMesto.setUserUX(true);
+    popupMesto.setIsLoading(true);
 
     api.addNewCard(item)
       .then((itemCard) => {
@@ -167,7 +167,7 @@ const popupMesto = new PopupWithForm({
         popupMesto.close();
       })
       .catch((error) => console.log(error))
-      .finally(() => popupMesto.setUserUX(false));
+      .finally(() => popupMesto.setIsLoading(false));
   },
 });
 popupMesto.setEventListeners();
